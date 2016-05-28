@@ -28814,7 +28814,7 @@
 			},
 			{
 				"name": "Sabin",
-				"protectsFrom": "Polimielitis",
+				"protectsFrom": "Poliomielitis",
 				"doses": [
 					{
 						"title": "1ª dosis",
