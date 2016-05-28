@@ -37,7 +37,7 @@ export default {
 
     ucfirst: str => str.charAt(0).toUpperCase() + str.substr(1),
 
-    relative: (date) => {
+    relative(date) {
 
       let today = moment({hour: 0});
 

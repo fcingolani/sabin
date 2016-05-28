@@ -29153,7 +29153,6 @@
 
 	    this.calendar = _calendar2.default[this.country];
 	  },
-
 	  ready: function ready() {
 
 	    (0, _jquery2.default)('.tabs').tabs();
@@ -29163,7 +29162,6 @@
 
 	    (0, _jquery2.default)('.tooltipped').tooltip({ delay: 50 });
 	  },
-
 	  data: function data() {
 	    return {
 	      country: this.$route.params.country,
@@ -29173,20 +29171,17 @@
 	    };
 	  },
 
-	  computed: {
 
+	  computed: {
 	    url: function url() {
 	      return window.document.location.href;
 	    },
-
 	    _birthDateMoment: function _birthDateMoment() {
 	      return (0, _moment2.default)(this.birthDate, "YYYY-MM-DD");
 	    },
-
 	    today: function today() {
 	      return (0, _moment2.default)({ hour: 0 });
 	    },
-
 	    doses: function doses() {
 
 	      var doses = [];
@@ -29253,7 +29248,6 @@
 	        return dose.from.unix();
 	      });
 	    },
-
 	    futureDoses: function futureDoses() {
 	      var _this = this;
 
@@ -29261,7 +29255,6 @@
 	        return dose.from.isSameOrAfter(_this.today);
 	      });
 	    },
-
 	    pastDoses: function pastDoses() {
 	      var _this2 = this;
 
@@ -29269,7 +29262,6 @@
 	        return dose.from.isBefore(_this2.today);
 	      });
 	    }
-
 	  },
 
 	  methods: {
@@ -29279,12 +29271,10 @@
 	  },
 
 	  filters: {
-
 	    formatDate: function formatDate(date) {
 
 	      return (0, _moment2.default)(date).format('DD/MM/YYYY');
 	    }
-
 	  }
 
 	};
@@ -29966,7 +29956,6 @@
 	        return date.fromNow();
 	      }
 	    }
-
 	  }
 
 	};
@@ -30216,7 +30205,7 @@
 /* 174 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div>\n  <header>\n      <div class=\"navbar-fixed\">\n          <nav>\n              <div class=\"nav-wrapper red darken-3 white-text\">\n                  <ul class=\"left\">\n                    <li><a v-link=\"{ name: 'home' }\"><i class=\"material-icons\">&#xE317;</i></a></li>\n                    <li class=\"flow-text\">Calendario de Vacunas</li>\n                  </ul>\n              </div>\n          </nav>\n      </div>\n  </header>\n\n  <main class=\"container\">\n\n\n    <div class=\"row\">\n      <ul class=\"tabs\">\n          <li class=\"tab col s6\" v-if=\"futureDoses.length > 0\"><a href=\"#future\">Próximas</a></li>\n          <li class=\"tab col s6\" v-if=\"pastDoses.length > 0\"><a href=\"#past\">Anteriores</a></li>\n      </ul>\n    </div>\n\n    <div class=\"row\" v-if=\"warn\">\n     <div class=\"col s12 m6\">\n       <div class=\"card red lighten-5\">\n         <div class=\"card-content\">\n           <span class=\"card-title\">Atención</span>\n           <p>Si bien Sabin te ayuda a ver un calendario de vacunación aproximado, <strong>siempre debes consultar a tu médico</strong> por un plan de vacunación adecuado.</p>\n           <p>La información de este calendario se obtuvo desde el <a target=\"_blank\" href=\"{{calendar.source}}\">{{calendar.title}} de {{calendar.country}}</a>, actualizado el día {{calendar.updated_at | formatDate}}.</p>\n         </div>\n         <div class=\"card-action\">\n           <a v-on:click=\"warn = false\">Entendido</a>\n         </div>\n       </div>\n     </div>\n   </div>\n\n    <div class=\"row\">\n      <div id=\"future\">\n        <dose-card v-for=\"dose in futureDoses\" :dose=\"dose\"></dose-card>\n      </div>\n      <div id=\"past\">\n        <dose-card v-for=\"dose in pastDoses\" :dose=\"dose\"></dose-card>\n      </div>\n    </div>\n\n    <div class=\"fixed-action-btn\" style=\"bottom: 45px; right: 24px;\">\n      <a class=\"btn-floating btn-large tooltipped red darken-3\" data-position=\"left\" data-delay=\"50\" data-tooltip=\"Guardar en Google Calendar\" v-on:click=\"showModal('import')\">\n        <i class=\"material-icons\">&#xE2C3;</i>\n      </a>\n    </div>\n\n    <import-dialog :calendar=\"calendar\" :doses=\"doses\" :birth-date=\"birthDate\"></import-dialog>\n\n  </main>\n</div>\n\n";
+	module.exports = "\n<div>\n  <header>\n      <div class=\"navbar-fixed\">\n          <nav>\n              <div class=\"nav-wrapper red darken-3 white-text\">\n                  <ul class=\"left\">\n                    <li><a v-link=\"{ name: 'home' }\"><i class=\"material-icons\">&#xE317;</i></a></li>\n                    <li class=\"flow-text\">Calendario de Vacunas</li>\n                  </ul>\n              </div>\n          </nav>\n      </div>\n  </header>\n\n  <main class=\"container\">\n\n\n    <div class=\"row\">\n      <ul class=\"tabs\">\n          <li class=\"tab col s6\" v-if=\"futureDoses.length > 0\"><a href=\"#future\">Próximas</a></li>\n          <li class=\"tab col s6\" v-if=\"pastDoses.length > 0\"><a href=\"#past\">Anteriores</a></li>\n      </ul>\n    </div>\n\n    <div class=\"row\" v-if=\"warn\">\n     <div class=\"col s12\">\n       <div class=\"card red lighten-5\">\n         <div class=\"card-content\">\n           <span class=\"card-title\">Atención</span>\n           <p>Si bien Sabin te ayuda a ver un calendario de vacunación aproximado, <strong>siempre debes consultar a tu médico</strong> por un plan de vacunación adecuado.</p>\n           <p>La información de este calendario se obtuvo desde el <a target=\"_blank\" href=\"{{calendar.source}}\">{{calendar.title}} de {{calendar.country}}</a>, actualizado el día {{calendar.updated_at | formatDate}}.</p>\n         </div>\n         <div class=\"card-action\">\n           <a v-on:click=\"warn = false\">Entendido</a>\n         </div>\n       </div>\n     </div>\n   </div>\n\n    <div class=\"row\">\n      <div id=\"future\">\n        <dose-card v-for=\"dose in futureDoses\" :dose=\"dose\"></dose-card>\n      </div>\n      <div id=\"past\">\n        <dose-card v-for=\"dose in pastDoses\" :dose=\"dose\"></dose-card>\n      </div>\n    </div>\n\n    <div class=\"fixed-action-btn\" style=\"bottom: 45px; right: 24px;\">\n      <a class=\"btn-floating btn-large tooltipped red darken-3\" data-position=\"left\" data-delay=\"50\" data-tooltip=\"Guardar en Google Calendar\" v-on:click=\"showModal('import')\">\n        <i class=\"material-icons\">&#xE2C3;</i>\n      </a>\n    </div>\n\n    <import-dialog :calendar=\"calendar\" :doses=\"doses\" :birth-date=\"birthDate\"></import-dialog>\n\n  </main>\n</div>\n\n";
 
 /***/ }
 /******/ ]);

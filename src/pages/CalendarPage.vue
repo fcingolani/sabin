@@ -24,7 +24,7 @@
       </div>
 
       <div class="row" v-if="warn">
-       <div class="col s12 m6">
+       <div class="col s12">
          <div class="card red lighten-5">
            <div class="card-content">
              <span class="card-title">Atención</span>
