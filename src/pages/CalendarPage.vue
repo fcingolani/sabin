@@ -77,13 +77,13 @@ export default {
     ImportDialog
   },
 
-  created: function () {
+  created() {
 
     this.calendar = CalendarService[this.country];
 
   },
 
-  ready: function () {
+  ready() {
 
     $('.tabs').tabs();
     $('.tabs a').each(function (i, el){
@@ -93,7 +93,7 @@ export default {
     $('.tooltipped').tooltip({delay: 50});
   },
 
-  data: function (){
+  data(){
     return {
       country: this.$route.params.country,
       birthDate: this.$route.params.birthDate,
@@ -104,19 +104,19 @@ export default {
 
   computed: {
 
-    url: function () {
+    url() {
       return window.document.location.href;
     },
 
-    _birthDateMoment: function () {
+    _birthDateMoment() {
       return moment(this.birthDate, "YYYY-MM-DD");
     },
 
-    today: function () {
+    today() {
       return moment({hour: 0});
     },
 
-    doses: function () {
+    doses() {
 
       let doses = [];
 
@@ -143,11 +143,11 @@ export default {
 
     },
 
-    futureDoses: function () {
+    futureDoses() {
       return _.filter(this.doses, dose => dose.from.isSameOrAfter(this.today))
     },
 
-    pastDoses: function () {
+    pastDoses() {
       return _.filter(this.doses, dose => dose.from.isBefore(this.today))
     }
 
@@ -163,7 +163,7 @@ export default {
 
   filters: {
 
-    formatDate: (date) => {
+    formatDate(date) {
 
       return moment(date).format('DD/MM/YYYY');
 
