@@ -1,0 +1,90 @@
+title: Calendario de Vacunación
+country: Argentina
+updated_at: 2016-05-27
+source: http://vacunas.minsal.cl/?page_id=1539
+vaccines:
+
+  ###############################################################################
+  # BCG
+  ###############################################################################
+  - name: BCG
+    protectsFrom: Enfermedades invasoras por M. tuberculosis
+    doses:
+      - title: Única dosis
+        description: Antes de egresar de la maternidad
+        from:
+          days: 0
+
+  ###############################################################################
+  # Neumocócica Conjugada
+  ###############################################################################
+  - name: Neumocócica Conjugada
+    protectsFrom: Enfermedades invasoras por S. pneumoniae
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: Refuerzo
+        description: Sólo para prematuros
+        from:
+          months: 6
+      - title: Refuerzo
+        from:
+          months: 12
+
+  ###############################################################################
+  # Polio
+  ###############################################################################
+  - name: Polio
+    protectsFrom: Polimielitis
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: 3ª dosis
+        from:
+          months: 6
+      - title: 4ª dosis
+        from:
+          months: 18
+
+  ###############################################################################
+  # Pentavalente
+  ###############################################################################
+  - name: Pentavalente
+    protectsFrom: Hepatitis B, Difteria, Tétanos, Tos Convulsiva, Enfermedades invasoras por H. influenzae tipo b (Hib)
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: 3ª dosis
+        from:
+          months: 6
+      - title: 4ª dosis
+        from:
+          months: 18
+
+  ###############################################################################
+  # Tres Vírica
+  ###############################################################################
+  - name: Tres Vírica
+    protectsFrom: Sarampión, Rubéola, Paperas.
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 12
+      - title: 2ª dosis
+        description: Ingreso escolar
+        from:
+          years: 5
+        to:
+          years: 6

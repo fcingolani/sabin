@@ -1,0 +1,252 @@
+title: Calendario Nacional de Vacunación
+country: Argentina
+updated_at: 2016-04-28
+source: http://www.msal.gob.ar/index.php/programas-y-planes/184-calendario-nacional-de-vacunacion-2016
+vaccines:
+
+  ###############################################################################
+  # BCG
+  ###############################################################################
+  - name: BCG
+    protectsFrom: Tuberculosis (formas invasivas)
+    doses:
+      - title: Única dosis
+        description: Antes de egresar de la maternidad
+        from:
+          days: 0
+
+  ###############################################################################
+  # Hepatitis B
+  ###############################################################################
+  - name: Hepatitis B (HB)
+    protectsFrom: Hepatitis B
+    doses:
+      - title: Dosis neonatal
+        description: En las primeras 12 horas de vida
+        from:
+          days: 0
+      - title: 1ª dosis
+        description: >
+          Vacunación Universal:
+          Si no hubiera recibido el esquema completo, deberá completarlo.
+          En caso de tener que iniciar: aplicar 1ª dosis, 2ª dosis al mes de la
+          primera y 3ª dosis a los seis meses de la primera.
+        from:
+          years: 11
+      - title: 2ª dosis
+        description: >
+          Vacunación Universal:
+          Si no hubiera recibido el esquema completo, deberá completarlo.
+          En caso de tener que iniciar: aplicar 1ª dosis, 2ª dosis al mes de la
+          primera y 3ª dosis a los seis meses de la primera.
+        from:
+          years: 11
+          months: 1
+      - title: 3ª dosis
+        description: >
+          Vacunación Universal:
+          Si no hubiera recibido el esquema completo, deberá completarlo.
+          En caso de tener que iniciar: aplicar 1ª dosis, 2ª dosis al mes de la
+          primera y 3ª dosis a los seis meses de la primera.
+        from:
+          years: 11
+          months: 6
+
+  ###############################################################################
+  # Neumococo Conjugada
+  ###############################################################################
+  - name: Neumococo Conjugada
+    protectsFrom: Meningitis, neumonía y sepsis por neumococo
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: Refuerzo
+        from:
+          months: 12
+
+  ###############################################################################
+  # Quíntuple Pentavalente (DTP-HB-Hib)
+  ###############################################################################
+  - name: Quíntuple Pentavalente (DTP-HB-Hib)
+    protectsFrom: Difteria, tétanos, tos convulsa, Hep B, Haemophilus influenzae b
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: 3ª dosis
+        from:
+          months: 6
+
+  ###############################################################################
+  # Polio
+  ###############################################################################
+  - name: Sabin
+    protectsFrom: Polimielitis
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: 3ª dosis
+        from:
+          months: 6
+      - title: 4ª dosis
+        from:
+          months: 15
+        to:
+          months: 18
+      - title: Refuerzo
+        description: Ingreso escolar
+        from:
+          years: 5
+        to:
+          years: 6
+
+  ###############################################################################
+  # Rotavirus
+  ###############################################################################
+  - name: Rotavirus
+    protectsFrom: Rotavirus
+    doses:
+      - title: 1ª dosis
+        description: >
+          La primera dosis debe administrarse antes de las 14 semanas y 6 días o
+          tres meses y medio.
+        from:
+          months: 2
+      - title: 2ª dosis
+        description: >
+          La segunda dosis debe administrarse antes de las 24 semanas o los 6
+          meses de vida.
+        from:
+          months: 4
+
+  ###############################################################################
+  # Antigripal
+  ###############################################################################
+  - name: Antigripal
+    protectsFrom: Gripe
+    doses:
+      - title: Dosis anual
+        description: >
+          Deberán recibir en la primovacunación 2 dosis de vacuna separadas al
+          menos por 4 semanas.
+        from:
+          months: 6
+        to:
+          months: 24
+
+  ###############################################################################
+  # Hepatitis A
+  ###############################################################################
+  - name: Hepatitis A (HA)
+    protectsFrom: Hepatitis A
+    doses:
+      - title: Única dosis
+        from:
+          months: 12
+
+  ###############################################################################
+  # Triple Viral
+  ###############################################################################
+  - name: Triple Viral (SRP)
+    protectsFrom: Sarampión, rubéola, paperas.
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 12
+      - title: 2ª dosis
+        description: Ingreso escolar
+        from:
+          years: 5
+        to:
+          years: 6
+
+  ###############################################################################
+  # Varicela
+  ###############################################################################
+  - name: Varicela
+    protectsFrom: Varicela
+    doses:
+      - title: Única dosis
+        from:
+          months: 15
+
+  ###############################################################################
+  # Cuádruple o Quíntuple
+  ###############################################################################
+  - name: Cuádruple o Quíntuple Pentavalente (DTP-Hib)
+    protectsFrom: Difteria, tétanos, tos convulsa, Haemophilus influenzae b.
+    doses:
+      - title: 1º refuerzo
+        from:
+          months: 15
+        to:
+          months: 18
+
+  ###############################################################################
+  # Triple Bacteriana Celular
+  ###############################################################################
+  - name: Triple Bacteriana Celular (DTP)
+    protectsFrom: Difteria, tétanos, tos convulsa
+    doses:
+      - title: 2º refuerzo
+        from:
+          years: 5
+        to:
+          years: 6
+
+  ###############################################################################
+  # Triple Bacteriana Acelular
+  ###############################################################################
+  - name: Triple Bacteriana Acelular (dTpa)
+    protectsFrom: Difteria, tétanos, tos convulsa
+    doses:
+      - title: Refuerzo
+        from:
+          years: 11
+
+  ###############################################################################
+  # VPH
+  ###############################################################################
+  - name: VPH
+    warning: Solo niñas.
+    protectsFrom: Virus papiloma humano
+    doses:
+      - title: Única dosis
+        from:
+          years: 11
+
+  ###############################################################################
+  # Fiebre Amarilla
+  ###############################################################################
+  - name: Fiebre Amarilla (FA)
+    warning: Sólo para residentes en zona de riesgo.
+    protectsFrom: Fiebre Amarilla
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 18
+      - title: Refuerzo
+        from:
+          years: 11
+
+  ###############################################################################
+  # Fiebre Hemorrágica Argentina
+  ###############################################################################
+  - name: Fiebre Hemorrágica Argentina (FHA)
+    warning: Sólo para residentes en zona de riesgo.
+    protectsFrom: Fiebre Hemorrágica Argentina
+    doses:
+      - title: Única dosis
+        from:
+          years: 15
