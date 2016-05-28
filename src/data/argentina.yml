@@ -1,7 +1,7 @@
 title: Calendario Nacional de Vacunación
 country: Argentina
-updated_at: 2016-04-28
-source: http://www.msal.gob.ar/index.php/programas-y-planes/184-calendario-nacional-de-vacunacion-2016
+updated_at: 2016-05-28
+source: http://www.msal.gob.ar/images/stories/calendario-vacunacion/2016/2016-04-30-calendario-vacunacion.jpg
 vaccines:
 
   ###############################################################################
@@ -87,7 +87,7 @@ vaccines:
   ###############################################################################
   # Polio
   ###############################################################################
-  - name: Sabin
+  - name: Polio IPV (Salk)
     protectsFrom: Poliomielitis
     doses:
       - title: 1ª dosis
@@ -96,15 +96,19 @@ vaccines:
       - title: 2ª dosis
         from:
           months: 4
+
+  - name: Polio OPB (Sabin)
+    protectsFrom: Poliomielitis
+    doses:
       - title: 3ª dosis
         from:
           months: 6
-      - title: 4ª dosis
+      - title: 1º Refuerzo
         from:
           months: 15
         to:
           months: 18
-      - title: Refuerzo
+      - title: 2º Refuerzo
         description: Ingreso escolar
         from:
           years: 5
@@ -170,6 +174,13 @@ vaccines:
           years: 5
         to:
           years: 6
+      - title: 1ª dosis
+        description: >
+          Si no hubiera recibido dos dosis de Triple Viral o una dosis de
+          Triple Viral + una dosis de Doble Viral, después del año de vida
+          para los nacidos después de 1965.
+        from:
+          years: 11
 
   ###############################################################################
   # Varicela
