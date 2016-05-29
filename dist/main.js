@@ -71,7 +71,7 @@
 
 	var _HomePage2 = _interopRequireDefault(_HomePage);
 
-	var _CalendarPage = __webpack_require__(121);
+	var _CalendarPage = __webpack_require__(127);
 
 	var _CalendarPage2 = _interopRequireDefault(_CalendarPage);
 
@@ -26714,7 +26714,7 @@
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\pages\\HomePage.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(120)
+	__vue_template__ = __webpack_require__(126)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -27068,13 +27068,22 @@
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _calendar = __webpack_require__(118);
+	var _DatePicker = __webpack_require__(118);
+
+	var _DatePicker2 = _interopRequireDefault(_DatePicker);
+
+	var _calendar = __webpack_require__(124);
 
 	var _calendar2 = _interopRequireDefault(_calendar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
+
+	  components: {
+	    DatePicker: _DatePicker2.default
+	  },
+
 	  data: function data() {
 	    return {
 	      birthDate: null,
@@ -27084,12 +27093,6 @@
 	  ready: function ready() {
 
 	    var that = this;
-
-	    (0, _jquery2.default)('.datepicker', this.el).pickadate({
-	      selectMonths: true,
-	      selectYears: 15,
-	      format: 'yyyy-mm-dd'
-	    });
 
 	    (0, _jquery2.default)('select#country', this.el).change(function (el) {
 	      that.country = (0, _jquery2.default)(this).val();
@@ -28687,13 +28690,173 @@
 /* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __vue_script__, __vue_template__
+	__webpack_require__(119)
+	__vue_script__ = __webpack_require__(121)
+	if (__vue_script__ &&
+	    __vue_script__.__esModule &&
+	    Object.keys(__vue_script__).length > 1) {
+	  console.warn("[vue-loader] src\\components\\DatePicker.vue: named exports in *.vue files are ignored.")}
+	__vue_template__ = __webpack_require__(123)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) {
+	(typeof module.exports === "function" ? (module.exports.options || (module.exports.options = {})) : module.exports).template = __vue_template__
+	}
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "F:\\White Duke\\Sandbox\\sabin\\src\\components\\DatePicker.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 119 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(120);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(115)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./DatePicker.vue", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js!./../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./DatePicker.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 120 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(114)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\n\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 121 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	var _argentina = __webpack_require__(119);
+	var _underscore = __webpack_require__(117);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	var _moment = __webpack_require__(3);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _now = __webpack_require__(122);
+
+	var _now2 = _interopRequireDefault(_now);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+
+	  props: {
+	    date: String
+	  },
+
+	  data: function data() {
+	    return {
+	      days: _underscore2.default.range(1, 32),
+	      months: _underscore2.default.map(_moment2.default.months(), function (v, i) {
+	        return {
+	          number: i,
+	          name: v
+	        };
+	      }),
+	      years: _underscore2.default.range(1950, _now2.default.year() + 1).reverse(),
+	      day: null,
+	      month: null,
+	      year: null
+	    };
+	  },
+
+
+	  computed: {
+	    date: function date() {
+	      var that = this;
+
+	      if (!that.day || !that.month || !that.year) {
+	        return null;
+	      }
+
+	      var date = (0, _moment2.default)({
+	        day: that.day,
+	        month: that.month,
+	        year: that.year
+	      });
+
+	      return date.isValid() ? date.format('YYYY-MM-DD') : null;
+	    }
+	  }
+
+	};
+
+/***/ },
+/* 122 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _moment = __webpack_require__(3);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = (0, _moment2.default)();
+
+/***/ },
+/* 123 */
+/***/ function(module, exports) {
+
+	module.exports = "\n\n<div class=\"date-picker row\">\n  <div class=\"col s3\">\n    <select class=\"browser-default\" v-model=\"day\">\n      <option value=\"\" disabled selected>Día</option>\n      <option v-for=\"day in days\">{{day}}</option>\n    </select>\n  </div>\n  <div class=\"col s5\">\n    <select class=\"browser-default\" v-model=\"month\">\n      <option value=\"\" disabled selected>Mes</option>\n      <option v-for=\"month in months\"  v-bind:value=\"month.number\">{{month.name}}</option>\n    </select>\n  </div>\n  <div class=\"col s4\">\n    <select class=\"browser-default\" v-model=\"year\">\n      <option value=\"\" disabled selected>Año</option>\n      <option v-for=\"year in years\">{{year}}</option>\n    </select>\n  </div>\n</div>\n\n";
+
+/***/ },
+/* 124 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _argentina = __webpack_require__(125);
 
 	var _argentina2 = _interopRequireDefault(_argentina);
 
@@ -28706,14 +28869,14 @@
 	};
 
 /***/ },
-/* 119 */
+/* 125 */
 /***/ function(module, exports) {
 
 	module.exports = {
 		"title": "Calendario Nacional de Vacunación",
 		"country": "Argentina",
-		"updated_at": "2016-04-28T00:00:00.000Z",
-		"source": "http://www.msal.gob.ar/index.php/programas-y-planes/184-calendario-nacional-de-vacunacion-2016",
+		"updated_at": "2016-05-28T00:00:00.000Z",
+		"source": "http://www.msal.gob.ar/images/stories/calendario-vacunacion/2016/2016-04-30-calendario-vacunacion.jpg",
 		"vaccines": [
 			{
 				"name": "BCG",
@@ -28813,7 +28976,7 @@
 				]
 			},
 			{
-				"name": "Sabin",
+				"name": "Polio IPV (Salk)",
 				"protectsFrom": "Poliomielitis",
 				"doses": [
 					{
@@ -28827,7 +28990,13 @@
 						"from": {
 							"months": 4
 						}
-					},
+					}
+				]
+			},
+			{
+				"name": "Polio OPB (Sabin)",
+				"protectsFrom": "Poliomielitis",
+				"doses": [
 					{
 						"title": "3ª dosis",
 						"from": {
@@ -28835,7 +29004,7 @@
 						}
 					},
 					{
-						"title": "4ª dosis",
+						"title": "1º Refuerzo",
 						"from": {
 							"months": 15
 						},
@@ -28844,7 +29013,7 @@
 						}
 					},
 					{
-						"title": "Refuerzo",
+						"title": "2º Refuerzo",
 						"description": "Ingreso escolar",
 						"from": {
 							"years": 5
@@ -28921,6 +29090,13 @@
 						},
 						"to": {
 							"years": 6
+						}
+					},
+					{
+						"title": "1ª dosis",
+						"description": "Si no hubiera recibido dos dosis de Triple Viral o una dosis de Triple Viral + una dosis de Doble Viral, después del año de vida para los nacidos después de 1965.\n",
+						"from": {
+							"years": 11
 						}
 					}
 				]
@@ -29028,23 +29204,23 @@
 	};
 
 /***/ },
-/* 120 */
+/* 126 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div class=\"home-page\">\n  <main>\n    <div class=\"container\">\n      <div class=\"logo row valign-wrapper red darken-3 white-text\">\n        <div class=\"col l12 valign\">\n          <h1>Sabin</h1>\n          <p class=\"flow-text\">Vacunándonos nos protegemos entre todos.</p>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col l12\">\n          <p>Ingresa la fecha de nacimiento <!--y el país--> a continuación para obtener un calendario de vacunación personalizado.</p>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col s12 input-field\">\n          <input id=\"birth-date\" type=\"date\" class=\"datepicker\" v-model=\"birthDate\">\n          <label for=\"birth-date\">Fecha de Nacimiento</label>\n        </div>\n      </div>\n      <div class=\"row\" v-if=\"countries.length > 1\">\n        <div class=\"col s12 input-field\">\n          <select id=\"country\" v-model=\"country\">\n            <option value=\"\" disabled selected>País</option>\n            <option v-for=\"country in countries\" v-bind:value=\"country.code\">{{ country.name }}</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col s12 input-field\">\n          <a class=\"waves-effect waves-light right btn red darken-3 white-text\" v-on:click=\"goToCalendar\" v-bind:class=\"{disabled: !isValid()}\">Ver calendario</a>\n        </div>\n      </div>\n    </div>\n  </main>\n</div>\n";
+	module.exports = "\n<div class=\"home-page\">\n  <main>\n    <div class=\"container\">\n      <div class=\"logo row valign-wrapper red darken-3 white-text\">\n        <div class=\"col l12 valign\">\n          <h1>Sabin</h1>\n          <p class=\"flow-text\">Vacunándonos nos protegemos entre todos.</p>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col l12\">Ingresa la fecha de nacimiento <!--y el país--> a continuación para obtener un calendario de vacunación personalizado.</div>\n      </div>\n\n      <date-picker :date.sync=\"birthDate\"></date-picker>\n\n      <div class=\"row\" v-if=\"countries.length > 1\">\n        <div class=\"col s12 input-field\">\n          <select id=\"country\" v-model=\"country\">\n            <option value=\"\" disabled selected>País</option>\n            <option v-for=\"country in countries\" v-bind:value=\"country.code\">{{ country.name }}</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col s12 input-field\">\n          <a class=\"waves-effect waves-light right btn red darken-3 white-text\" v-on:click=\"goToCalendar\" v-bind:class=\"{disabled: !isValid()}\">Ver calendario</a>\n        </div>\n      </div>\n    </div>\n  </main>\n</div>\n";
 
 /***/ },
-/* 121 */
+/* 127 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(122)
-	__vue_script__ = __webpack_require__(124)
+	__webpack_require__(128)
+	__vue_script__ = __webpack_require__(130)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\pages\\CalendarPage.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(174)
+	__vue_template__ = __webpack_require__(180)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -29063,13 +29239,13 @@
 	})()}
 
 /***/ },
-/* 122 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(123);
+	var content = __webpack_require__(129);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(115)(content, {});
@@ -29089,7 +29265,7 @@
 	}
 
 /***/ },
-/* 123 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(114)();
@@ -29103,7 +29279,7 @@
 
 
 /***/ },
-/* 124 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29112,7 +29288,7 @@
 	  value: true
 	});
 
-	var _getIterator2 = __webpack_require__(125);
+	var _getIterator2 = __webpack_require__(131);
 
 	var _getIterator3 = _interopRequireDefault(_getIterator2);
 
@@ -29128,15 +29304,15 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _calendar = __webpack_require__(118);
+	var _calendar = __webpack_require__(124);
 
 	var _calendar2 = _interopRequireDefault(_calendar);
 
-	var _DoseCard = __webpack_require__(163);
+	var _DoseCard = __webpack_require__(169);
 
 	var _DoseCard2 = _interopRequireDefault(_DoseCard);
 
-	var _ImportDialog = __webpack_require__(168);
+	var _ImportDialog = __webpack_require__(174);
 
 	var _ImportDialog2 = _interopRequireDefault(_ImportDialog);
 
@@ -29280,42 +29456,42 @@
 	};
 
 /***/ },
-/* 125 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(126), __esModule: true };
+	module.exports = { "default": __webpack_require__(132), __esModule: true };
 
 /***/ },
-/* 126 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(127);
-	__webpack_require__(155);
-	module.exports = __webpack_require__(158);
+	__webpack_require__(133);
+	__webpack_require__(161);
+	module.exports = __webpack_require__(164);
 
 /***/ },
-/* 127 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(128);
-	var Iterators = __webpack_require__(131);
+	__webpack_require__(134);
+	var Iterators = __webpack_require__(137);
 	Iterators.NodeList = Iterators.HTMLCollection = Iterators.Array;
 
 /***/ },
-/* 128 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var addToUnscopables = __webpack_require__(129)
-	  , step             = __webpack_require__(130)
-	  , Iterators        = __webpack_require__(131)
-	  , toIObject        = __webpack_require__(132);
+	var addToUnscopables = __webpack_require__(135)
+	  , step             = __webpack_require__(136)
+	  , Iterators        = __webpack_require__(137)
+	  , toIObject        = __webpack_require__(138);
 
 	// 22.1.3.4 Array.prototype.entries()
 	// 22.1.3.13 Array.prototype.keys()
 	// 22.1.3.29 Array.prototype.values()
 	// 22.1.3.30 Array.prototype[@@iterator]()
-	module.exports = __webpack_require__(136)(Array, 'Array', function(iterated, kind){
+	module.exports = __webpack_require__(142)(Array, 'Array', function(iterated, kind){
 	  this._t = toIObject(iterated); // target
 	  this._i = 0;                   // next index
 	  this._k = kind;                // kind
@@ -29341,13 +29517,13 @@
 	addToUnscopables('entries');
 
 /***/ },
-/* 129 */
+/* 135 */
 /***/ function(module, exports) {
 
 	module.exports = function(){ /* empty */ };
 
 /***/ },
-/* 130 */
+/* 136 */
 /***/ function(module, exports) {
 
 	module.exports = function(done, value){
@@ -29355,34 +29531,34 @@
 	};
 
 /***/ },
-/* 131 */
+/* 137 */
 /***/ function(module, exports) {
 
 	module.exports = {};
 
 /***/ },
-/* 132 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(133)
-	  , defined = __webpack_require__(135);
+	var IObject = __webpack_require__(139)
+	  , defined = __webpack_require__(141);
 	module.exports = function(it){
 	  return IObject(defined(it));
 	};
 
 /***/ },
-/* 133 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(134);
+	var cof = __webpack_require__(140);
 	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
 	  return cof(it) == 'String' ? it.split('') : Object(it);
 	};
 
 /***/ },
-/* 134 */
+/* 140 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -29392,7 +29568,7 @@
 	};
 
 /***/ },
-/* 135 */
+/* 141 */
 /***/ function(module, exports) {
 
 	// 7.2.1 RequireObjectCoercible(argument)
@@ -29402,20 +29578,20 @@
 	};
 
 /***/ },
-/* 136 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var LIBRARY        = __webpack_require__(137)
-	  , $export        = __webpack_require__(138)
-	  , redefine       = __webpack_require__(143)
-	  , hide           = __webpack_require__(144)
-	  , has            = __webpack_require__(149)
-	  , Iterators      = __webpack_require__(131)
-	  , $iterCreate    = __webpack_require__(150)
-	  , setToStringTag = __webpack_require__(151)
-	  , getProto       = __webpack_require__(145).getProto
-	  , ITERATOR       = __webpack_require__(152)('iterator')
+	var LIBRARY        = __webpack_require__(143)
+	  , $export        = __webpack_require__(144)
+	  , redefine       = __webpack_require__(149)
+	  , hide           = __webpack_require__(150)
+	  , has            = __webpack_require__(155)
+	  , Iterators      = __webpack_require__(137)
+	  , $iterCreate    = __webpack_require__(156)
+	  , setToStringTag = __webpack_require__(157)
+	  , getProto       = __webpack_require__(151).getProto
+	  , ITERATOR       = __webpack_require__(158)('iterator')
 	  , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
 	  , FF_ITERATOR    = '@@iterator'
 	  , KEYS           = 'keys'
@@ -29473,18 +29649,18 @@
 	};
 
 /***/ },
-/* 137 */
+/* 143 */
 /***/ function(module, exports) {
 
 	module.exports = true;
 
 /***/ },
-/* 138 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global    = __webpack_require__(139)
-	  , core      = __webpack_require__(140)
-	  , ctx       = __webpack_require__(141)
+	var global    = __webpack_require__(145)
+	  , core      = __webpack_require__(146)
+	  , ctx       = __webpack_require__(147)
 	  , PROTOTYPE = 'prototype';
 
 	var $export = function(type, name, source){
@@ -29530,7 +29706,7 @@
 	module.exports = $export;
 
 /***/ },
-/* 139 */
+/* 145 */
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -29539,18 +29715,18 @@
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
-/* 140 */
+/* 146 */
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '1.2.6'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 141 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(142);
+	var aFunction = __webpack_require__(148);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -29571,7 +29747,7 @@
 	};
 
 /***/ },
-/* 142 */
+/* 148 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -29580,18 +29756,18 @@
 	};
 
 /***/ },
-/* 143 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(144);
+	module.exports = __webpack_require__(150);
 
 /***/ },
-/* 144 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $          = __webpack_require__(145)
-	  , createDesc = __webpack_require__(146);
-	module.exports = __webpack_require__(147) ? function(object, key, value){
+	var $          = __webpack_require__(151)
+	  , createDesc = __webpack_require__(152);
+	module.exports = __webpack_require__(153) ? function(object, key, value){
 	  return $.setDesc(object, key, createDesc(1, value));
 	} : function(object, key, value){
 	  object[key] = value;
@@ -29599,7 +29775,7 @@
 	};
 
 /***/ },
-/* 145 */
+/* 151 */
 /***/ function(module, exports) {
 
 	var $Object = Object;
@@ -29617,7 +29793,7 @@
 	};
 
 /***/ },
-/* 146 */
+/* 152 */
 /***/ function(module, exports) {
 
 	module.exports = function(bitmap, value){
@@ -29630,16 +29806,16 @@
 	};
 
 /***/ },
-/* 147 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(148)(function(){
+	module.exports = !__webpack_require__(154)(function(){
 	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
-/* 148 */
+/* 154 */
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -29651,7 +29827,7 @@
 	};
 
 /***/ },
-/* 149 */
+/* 155 */
 /***/ function(module, exports) {
 
 	var hasOwnProperty = {}.hasOwnProperty;
@@ -29660,17 +29836,17 @@
 	};
 
 /***/ },
-/* 150 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var $              = __webpack_require__(145)
-	  , descriptor     = __webpack_require__(146)
-	  , setToStringTag = __webpack_require__(151)
+	var $              = __webpack_require__(151)
+	  , descriptor     = __webpack_require__(152)
+	  , setToStringTag = __webpack_require__(157)
 	  , IteratorPrototype = {};
 
 	// 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-	__webpack_require__(144)(IteratorPrototype, __webpack_require__(152)('iterator'), function(){ return this; });
+	__webpack_require__(150)(IteratorPrototype, __webpack_require__(158)('iterator'), function(){ return this; });
 
 	module.exports = function(Constructor, NAME, next){
 	  Constructor.prototype = $.create(IteratorPrototype, {next: descriptor(1, next)});
@@ -29678,34 +29854,34 @@
 	};
 
 /***/ },
-/* 151 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var def = __webpack_require__(145).setDesc
-	  , has = __webpack_require__(149)
-	  , TAG = __webpack_require__(152)('toStringTag');
+	var def = __webpack_require__(151).setDesc
+	  , has = __webpack_require__(155)
+	  , TAG = __webpack_require__(158)('toStringTag');
 
 	module.exports = function(it, tag, stat){
 	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 	};
 
 /***/ },
-/* 152 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var store  = __webpack_require__(153)('wks')
-	  , uid    = __webpack_require__(154)
-	  , Symbol = __webpack_require__(139).Symbol;
+	var store  = __webpack_require__(159)('wks')
+	  , uid    = __webpack_require__(160)
+	  , Symbol = __webpack_require__(145).Symbol;
 	module.exports = function(name){
 	  return store[name] || (store[name] =
 	    Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
 	};
 
 /***/ },
-/* 153 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global = __webpack_require__(139)
+	var global = __webpack_require__(145)
 	  , SHARED = '__core-js_shared__'
 	  , store  = global[SHARED] || (global[SHARED] = {});
 	module.exports = function(key){
@@ -29713,7 +29889,7 @@
 	};
 
 /***/ },
-/* 154 */
+/* 160 */
 /***/ function(module, exports) {
 
 	var id = 0
@@ -29723,14 +29899,14 @@
 	};
 
 /***/ },
-/* 155 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var $at  = __webpack_require__(156)(true);
+	var $at  = __webpack_require__(162)(true);
 
 	// 21.1.3.27 String.prototype[@@iterator]()
-	__webpack_require__(136)(String, 'String', function(iterated){
+	__webpack_require__(142)(String, 'String', function(iterated){
 	  this._t = String(iterated); // target
 	  this._i = 0;                // next index
 	// 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -29745,11 +29921,11 @@
 	});
 
 /***/ },
-/* 156 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toInteger = __webpack_require__(157)
-	  , defined   = __webpack_require__(135);
+	var toInteger = __webpack_require__(163)
+	  , defined   = __webpack_require__(141);
 	// true  -> String#at
 	// false -> String#codePointAt
 	module.exports = function(TO_STRING){
@@ -29767,7 +29943,7 @@
 	};
 
 /***/ },
-/* 157 */
+/* 163 */
 /***/ function(module, exports) {
 
 	// 7.1.4 ToInteger
@@ -29778,29 +29954,29 @@
 	};
 
 /***/ },
-/* 158 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var anObject = __webpack_require__(159)
-	  , get      = __webpack_require__(161);
-	module.exports = __webpack_require__(140).getIterator = function(it){
+	var anObject = __webpack_require__(165)
+	  , get      = __webpack_require__(167);
+	module.exports = __webpack_require__(146).getIterator = function(it){
 	  var iterFn = get(it);
 	  if(typeof iterFn != 'function')throw TypeError(it + ' is not iterable!');
 	  return anObject(iterFn.call(it));
 	};
 
 /***/ },
-/* 159 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(160);
+	var isObject = __webpack_require__(166);
 	module.exports = function(it){
 	  if(!isObject(it))throw TypeError(it + ' is not an object!');
 	  return it;
 	};
 
 /***/ },
-/* 160 */
+/* 166 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -29808,25 +29984,25 @@
 	};
 
 /***/ },
-/* 161 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var classof   = __webpack_require__(162)
-	  , ITERATOR  = __webpack_require__(152)('iterator')
-	  , Iterators = __webpack_require__(131);
-	module.exports = __webpack_require__(140).getIteratorMethod = function(it){
+	var classof   = __webpack_require__(168)
+	  , ITERATOR  = __webpack_require__(158)('iterator')
+	  , Iterators = __webpack_require__(137);
+	module.exports = __webpack_require__(146).getIteratorMethod = function(it){
 	  if(it != undefined)return it[ITERATOR]
 	    || it['@@iterator']
 	    || Iterators[classof(it)];
 	};
 
 /***/ },
-/* 162 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// getting tag from 19.1.3.6 Object.prototype.toString()
-	var cof = __webpack_require__(134)
-	  , TAG = __webpack_require__(152)('toStringTag')
+	var cof = __webpack_require__(140)
+	  , TAG = __webpack_require__(158)('toStringTag')
 	  // ES3 wrong here
 	  , ARG = cof(function(){ return arguments; }()) == 'Arguments';
 
@@ -29842,17 +30018,17 @@
 	};
 
 /***/ },
-/* 163 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(164)
-	__vue_script__ = __webpack_require__(166)
+	__webpack_require__(170)
+	__vue_script__ = __webpack_require__(172)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\components\\DoseCard.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(167)
+	__vue_template__ = __webpack_require__(173)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -29871,13 +30047,13 @@
 	})()}
 
 /***/ },
-/* 164 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(165);
+	var content = __webpack_require__(171);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(115)(content, {});
@@ -29897,7 +30073,7 @@
 	}
 
 /***/ },
-/* 165 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(114)();
@@ -29911,7 +30087,7 @@
 
 
 /***/ },
-/* 166 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29961,23 +30137,23 @@
 	};
 
 /***/ },
-/* 167 */
+/* 173 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div class=\"col m6 dose\">\n  <div class=\"card\">\n      <div class=\"card-content\">\n          <h6 class=\"grey-text text-lighten-1\">{{ dose.from | relative | ucfirst }}</h6>\n          <span class=\"card-title\">{{ dose.title }} de {{ dose.vaccine.name }}</span>\n          <div class=\"section\" v-if=\"dose.description\">\n              <p>{{ dose.description }}</p>\n          </div>\n          <div class=\"divider\"></div>\n          <div class=\"section\">\n              <p>\n                  <i class=\"tiny material-icons\">event</i> {{ dose.from.format(\"DD/MM/YYYY\") }}\n                  <span v-if=\"dose.to\">al {{ dose.to.format(\"DD/MM/YYYY\") }}</span>\n              </p>\n              <p v-if=\"dose.vaccine.description\">{{ dose.vaccine.description }}</p>\n              <p v-if=\"dose.vaccine.warning\"><i class=\"tiny material-icons\">warning</i> {{ dose.vaccine.warning }}</p>\n              <p v-if=\"dose.vaccine.protectsFrom\"><i class=\"tiny material-icons\">bug_report</i> {{ dose.vaccine.protectsFrom }}</p>\n          </div>\n      </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 168 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(169)
-	__vue_script__ = __webpack_require__(171)
+	__webpack_require__(175)
+	__vue_script__ = __webpack_require__(177)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src\\components\\ImportDialog.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(173)
+	__vue_template__ = __webpack_require__(179)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -29996,13 +30172,13 @@
 	})()}
 
 /***/ },
-/* 169 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(170);
+	var content = __webpack_require__(176);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(115)(content, {});
@@ -30022,7 +30198,7 @@
 	}
 
 /***/ },
-/* 170 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(114)();
@@ -30036,7 +30212,7 @@
 
 
 /***/ },
-/* 171 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30049,7 +30225,7 @@
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _gapiPromise = __webpack_require__(172);
+	var _gapiPromise = __webpack_require__(178);
 
 	var _gapiPromise2 = _interopRequireDefault(_gapiPromise);
 
@@ -30181,7 +30357,7 @@
 	};
 
 /***/ },
-/* 172 */
+/* 178 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30196,13 +30372,13 @@
 	});
 
 /***/ },
-/* 173 */
+/* 179 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div id=\"import\" class=\"modal\">\n\n  <div v-show=\"state == 'loading'\" class=\"loading\">\n    <div class=\"modal-content\">\n      <div class=\"valign-wrapper\">\n        <div class=\"preloader-wrapper small active\">\n          <div class=\"spinner-layer spinner-green-only\">\n            <div class=\"circle-clipper left\">\n              <div class=\"circle\"></div>\n            </div><div class=\"gap-patch\">\n              <div class=\"circle\"></div>\n            </div><div class=\"circle-clipper right\">\n              <div class=\"circle\"></div>\n            </div>\n          </div>\n        </div>\n        <p class=\"valign\">Cargando...</p>\n      </div>\n    </div>\n  </div>\n\n  <div v-show=\"state == 'login'\">\n    <div class=\"modal-content\">\n      <h4>Importar</h4>\n      <p>Puedes importar este calendario a tu Google Calendar para tenerlo siempre contigo y recibir alertas automáticamente para que no olvides ninguna vacuna. Para ello debes iniciar sesión con tu cuenta de Google.</p>\n    </div>\n    <div class=\"modal-footer\">\n      <a class=\" modal-action waves-effect waves-green btn-flat\" v-on:click=\"login()\">Iniciar Sesión</a>\n    </div>\n  </div>\n\n  <div v-show=\"state == 'create'\">\n    <div class=\"modal-content\">\n      <h4>Crear Calendario</h4>\n      <p>Antes de importarlo, puedes elegir un nombre de calendario a continuación para identificarlo luego en tu cuenta de Google.</p>\n      <div class=\"input-field col s6\">\n        <input placeholder=\"Nombre del Calendario\" id=\"calendar-name\" type=\"text\" v-model=\"calendarName\">\n      </div>\n    </div>\n    <div class=\"modal-footer\">\n      <a class=\"modal-action waves-effect waves-green btn-flat\" v-on:click=\"save()\">Importar</a>\n    </div>\n  </div>\n\n  <div v-show=\"state == 'importing'\" class=\"loading\">\n    <div class=\"modal-content\">\n      <div class=\"valign-wrapper\">\n        <div class=\"preloader-wrapper small active\">\n          <div class=\"spinner-layer spinner-green-only\">\n            <div class=\"circle-clipper left\">\n              <div class=\"circle\"></div>\n            </div><div class=\"gap-patch\">\n              <div class=\"circle\"></div>\n            </div><div class=\"circle-clipper right\">\n              <div class=\"circle\"></div>\n            </div>\n          </div>\n        </div>\n        <p class=\"valign\">Importando...</p>\n      </div>\n    </div>\n  </div>\n\n  <div v-show=\"state == 'done'\">\n    <div class=\"modal-content\">\n      <h4>Listo</h4>\n      <p>Tu calendario ya ha sido importado a tu cuenta de Google.</p>\n    </div>\n    <div class=\"modal-footer\">\n      <a class=\"modal-action modal-close waves-effect waves-green btn-flat\" v-on:click=\"state = 'create'\">Cerrar</a>\n    </div>\n  </div>\n</div>\n";
 
 /***/ },
-/* 174 */
+/* 180 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div>\n  <header>\n      <div class=\"navbar-fixed\">\n          <nav>\n              <div class=\"nav-wrapper red darken-3 white-text\">\n                  <ul class=\"left\">\n                    <li><a v-link=\"{ name: 'home' }\"><i class=\"material-icons\">&#xE317;</i></a></li>\n                    <li class=\"flow-text\">Calendario de Vacunas</li>\n                  </ul>\n              </div>\n          </nav>\n      </div>\n  </header>\n\n  <main class=\"container\">\n\n\n    <div class=\"row\">\n      <ul class=\"tabs\">\n          <li class=\"tab col s6\" v-if=\"futureDoses.length > 0\"><a href=\"#future\">Próximas</a></li>\n          <li class=\"tab col s6\" v-if=\"pastDoses.length > 0\"><a href=\"#past\">Anteriores</a></li>\n      </ul>\n    </div>\n\n    <div class=\"row\" v-if=\"warn\">\n     <div class=\"col s12\">\n       <div class=\"card red lighten-5\">\n         <div class=\"card-content\">\n           <span class=\"card-title\">Atención</span>\n           <p>Si bien Sabin te ayuda a ver un calendario de vacunación aproximado, <strong>siempre debes consultar a tu médico</strong> por un plan de vacunación adecuado.</p>\n           <p>La información de este calendario se obtuvo desde el <a target=\"_blank\" href=\"{{calendar.source}}\">{{calendar.title}} de {{calendar.country}}</a>, actualizado el día {{calendar.updated_at | formatDate}}.</p>\n         </div>\n         <div class=\"card-action\">\n           <a v-on:click=\"warn = false\">Entendido</a>\n         </div>\n       </div>\n     </div>\n   </div>\n\n    <div class=\"row\">\n      <div id=\"future\">\n        <dose-card v-for=\"dose in futureDoses\" :dose=\"dose\"></dose-card>\n      </div>\n      <div id=\"past\">\n        <dose-card v-for=\"dose in pastDoses\" :dose=\"dose\"></dose-card>\n      </div>\n    </div>\n\n    <div class=\"fixed-action-btn\" style=\"bottom: 45px; right: 24px;\">\n      <a class=\"btn-floating btn-large tooltipped red darken-3\" data-position=\"left\" data-delay=\"50\" data-tooltip=\"Guardar en Google Calendar\" v-on:click=\"showModal('import')\">\n        <i class=\"material-icons\">&#xE2C3;</i>\n      </a>\n    </div>\n\n    <import-dialog :calendar=\"calendar\" :doses=\"doses\" :birth-date=\"birthDate\"></import-dialog>\n\n  </main>\n</div>\n\n";
