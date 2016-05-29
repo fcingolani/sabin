@@ -29161,9 +29161,16 @@
 				"protectsFrom": "Virus papiloma humano",
 				"doses": [
 					{
-						"title": "Única dosis",
+						"title": "1ª dosis",
 						"from": {
 							"years": 11
+						}
+					},
+					{
+						"title": "2ª dosis",
+						"from": {
+							"years": 11,
+							"months": 6
 						}
 					}
 				]
