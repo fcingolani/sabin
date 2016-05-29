@@ -14,8 +14,6 @@
 
         <date-picker :date.sync="birthDate"></date-picker>
 
-        <i>i{{birthDate}}</i>
-
         <div class="row" v-if="countries.length > 1">
           <div class="col s12 input-field">
             <select id="country" v-model="country">

@@ -19,7 +19,6 @@
         <option v-for="year in years">{{year}}</option>
       </select>
     </div>
-    <b>{{date}}</b>
   </div>
 
 </template>
