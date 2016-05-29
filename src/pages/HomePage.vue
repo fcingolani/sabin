@@ -9,16 +9,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col l12">
-            <p>Ingresa la fecha de nacimiento <!--y el país--> a continuación para obtener un calendario de vacunación personalizado.</p>
-          </div>
+          <div class="col l12">Ingresa la fecha de nacimiento <!--y el país--> a continuación para obtener un calendario de vacunación personalizado.</div>
         </div>
-        <div class="row">
-          <div class="col s12 input-field">
-            <input id="birth-date" type="date" class="datepicker" v-model="birthDate">
-            <label for="birth-date">Fecha de Nacimiento</label>
-          </div>
-        </div>
+
+        <date-picker :date.sync="birthDate"></date-picker>
+
+        <i>i{{birthDate}}</i>
+
         <div class="row" v-if="countries.length > 1">
           <div class="col s12 input-field">
             <select id="country" v-model="country">
@@ -41,9 +38,15 @@
 import $ from 'jquery'
 import _ from 'underscore'
 
+import DatePicker from 'components/DatePicker.vue'
+
 import CalendarService from 'lib/calendar'
 
 export default {
+
+  components: {
+    DatePicker
+  },
 
   data() {
     return {
@@ -56,12 +59,12 @@ export default {
 
     let that = this;
 
-    $('.datepicker', this.el)
+    /*$('.datepicker', this.el)
       .pickadate({
         selectMonths: true,
         selectYears: 15,
         format: 'yyyy-mm-dd'
-      });
+      });*/
 
     // workaround for MaterializeCSS
     $('select#country', this.el)
