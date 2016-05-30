@@ -1,5 +1,5 @@
 title: Calendario de Vacunación
-country: Argentina
+country: Chile
 updated_at: 2016-05-27
 source: http://vacunas.minsal.cl/?page_id=1539
 vaccines:
@@ -88,3 +88,74 @@ vaccines:
           years: 5
         to:
           years: 6
+
+  ###############################################################################
+  # Hepatitis A
+  ###############################################################################
+  - name: Hepatitis A
+    warning: Solo para la región de Arica y Parinacota, Tarapacá y algunas comunas de Biobio.
+    protectsFrom: Hepatitis A.
+    doses:
+      - title: Única dosis
+        from:
+          months: 18
+
+  ###############################################################################
+  # Meningocócica Conjugada
+  ###############################################################################
+  - name: Meningocócica Conjugada
+    protectsFrom: Enfermedades invasoras por N. meningitidis.
+    doses:
+      - title: Única dosis
+        from:
+          months: 12
+
+  ###############################################################################
+  # Neumocócica Polisacárida
+  ###############################################################################
+  - name: Neumocócica Polisacárida
+    protectsFrom: Enfermedades invasoras por S. pneumoniae.
+    doses:
+      - title: Única dosis
+        description: Adultos de 65 años y más
+        from:
+          years: 65
+
+  ###############################################################################
+  # dTp (acelular)
+  ###############################################################################
+  - name: dTp (acelular)
+    protectsFrom: Difteria, Tétanos, Tos Convulsiva
+    doses:
+      - title: 1ª dosis
+        description: 1º Básico
+        from:
+          years: 5
+        to:
+          years: 6
+      - title: 2ª dosis
+        description: 8º Básico
+        from:
+          years: 12
+        to:
+          years: 13
+
+  ###############################################################################
+  # VPH
+  ###############################################################################
+  - name: VPH
+    protectsFrom: Infecciones por Virus Papiloma Humano.
+    warning: Sólo niñas.
+    doses:
+      - title: 1ª dosis
+        description: 4º Básico
+        from:
+          years: 8
+        to:
+          years: 9
+      - title: 2ª dosis
+        description: 5º Básico
+        from:
+          years: 9
+        to:
+          years: 10

@@ -9,14 +9,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col l12">Ingresa la fecha de nacimiento <!--y el país--> a continuación para obtener un calendario de vacunación personalizado.</div>
+          <div class="col l12">Ingresa la fecha de nacimiento y el país a continuación para obtener un calendario de vacunación personalizado.</div>
         </div>
 
         <date-picker :date.sync="birthDate"></date-picker>
 
         <div class="row" v-if="countries.length > 1">
           <div class="col s12 input-field">
-            <select id="country" v-model="country">
+            <select class="browser-default" id="country" v-model="country">
               <option value="" disabled selected>País</option>
               <option v-for="country in countries" v-bind:value="country.code">{{ country.name }}</option>
             </select>
@@ -54,22 +54,7 @@ export default {
   },
 
   ready() {
-
     let that = this;
-
-    /*$('.datepicker', this.el)
-      .pickadate({
-        selectMonths: true,
-        selectYears: 15,
-        format: 'yyyy-mm-dd'
-      });*/
-
-    // workaround for MaterializeCSS
-    $('select#country', this.el)
-      .change(function (el){
-        that.country = $(this).val();
-      })
-      .material_select();
 
     if(this.countries.length == 1) {
       this.country = this.countries[0].code;
