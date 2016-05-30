@@ -9,7 +9,7 @@
     </div>
     <div class="col s5">
       <select class="browser-default" v-model="month">
-        <option value="" disabled selected>Mes</option>
+        <option value="-1" disabled selected>Mes</option>
         <option v-for="month in months"  v-bind:value="month.number">{{month.name}}</option>
       </select>
     </div>
@@ -57,7 +57,7 @@ export default {
     date() {
       let that = this;
 
-      if(!that.day || !that.month || !that.year) {
+      if(!that.day || that.month === null || !that.year) {
         return null;
       }
 
