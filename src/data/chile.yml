@@ -2,6 +2,11 @@ title: Calendario de Vacunación
 country: Chile
 updated_at: 2016-05-27
 source: http://vacunas.minsal.cl/?page_id=1539
+
+education:
+  classStartMonth: 4
+  termStartMonth: 3
+
 vaccines:
 
   ###############################################################################
@@ -83,10 +88,9 @@ vaccines:
         from:
           months: 12
       - title: 2ª dosis
-        description: Ingreso escolar
+        description: 1º Básico
+        atSchool: true
         from:
-          years: 5
-        to:
           years: 6
 
   ###############################################################################
@@ -129,15 +133,13 @@ vaccines:
     doses:
       - title: 1ª dosis
         description: 1º Básico
+        atSchool: true
         from:
-          years: 5
-        to:
           years: 6
       - title: 2ª dosis
         description: 8º Básico
+        atSchool: true
         from:
-          years: 12
-        to:
           years: 13
 
   ###############################################################################
@@ -149,13 +151,11 @@ vaccines:
     doses:
       - title: 1ª dosis
         description: 4º Básico
+        atSchool: true
         from:
-          years: 8
-        to:
           years: 9
       - title: 2ª dosis
         description: 5º Básico
+        atSchool: true
         from:
-          years: 9
-        to:
           years: 10
