@@ -2,6 +2,11 @@ title: Calendario Nacional de Vacunación
 country: Argentina
 updated_at: 2016-05-28
 source: http://www.msal.gob.ar/images/stories/calendario-vacunacion/2016/2016-04-30-calendario-vacunacion.jpg
+
+education:
+  classStartMonth: 7
+  termStartMonth: 3
+
 vaccines:
 
   ###############################################################################
@@ -109,10 +114,9 @@ vaccines:
         to:
           months: 18
       - title: 2º Refuerzo
-        description: Ingreso escolar
+        description: Al ingresar a 1er grado de Primaria
+        atSchool: true
         from:
-          years: 5
-        to:
           years: 6
 
   ###############################################################################
@@ -169,10 +173,9 @@ vaccines:
         from:
           months: 12
       - title: 2ª dosis
-        description: Ingreso escolar
+        description: Al ingresar a 1er grado de Primaria
+        atSchool: true
         from:
-          years: 5
-        to:
           years: 6
       - title: 1ª dosis
         description: >
@@ -211,9 +214,9 @@ vaccines:
     protectsFrom: Difteria, tétanos, tos convulsa
     doses:
       - title: 2º refuerzo
+        description: Al ingresar a 1er grado de Primaria
+        atSchool: true
         from:
-          years: 5
-        to:
           years: 6
 
   ###############################################################################

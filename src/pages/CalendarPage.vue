@@ -127,10 +127,26 @@ export default {
           let dose = _.clone(vaccineDose);
 
           dose.vaccine = vaccine;
-          dose.from = moment(this._birthDateMoment).add(vaccineDose.from);
 
-          if(vaccineDose.to){
-            dose.to = moment(this._birthDateMoment).add(vaccineDose.to)
+          if(vaccineDose.atSchool) {
+
+            let lateSchool = this._birthDateMoment.month() < this.calendar.education.classStartMonth - 1;
+
+            dose.from = moment({
+              year: this._birthDateMoment.year(),
+              month: this.calendar.education.termStartMonth - 2
+            }).add({
+              years: vaccineDose.from.years + (lateSchool ? 0 : 1)
+            });
+
+          }else{
+
+            dose.from = moment(this._birthDateMoment).add(vaccineDose.from);
+
+            if(vaccineDose.to){
+              dose.to = moment(this._birthDateMoment).add(vaccineDose.to)
+            }
+
           }
 
           doses.push(dose);
