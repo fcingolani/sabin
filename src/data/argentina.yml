@@ -1,7 +1,7 @@
 title: Calendario Nacional de Vacunación
 country: Argentina
-updated_at: 2016-05-28
-source: http://www.msal.gob.ar/images/stories/calendario-vacunacion/2016/2016-04-30-calendario-vacunacion.jpg
+updated_at: 2017-05-28
+source: http://www.msal.gob.ar/images/stories/ryc/graficos/0000001014cnt-2017-01-01_calendario-vacunacion_alta.jpg
 
 education:
   classStartMonth: 7
@@ -137,6 +137,25 @@ vaccines:
           meses de vida.
         from:
           months: 4
+
+  ###############################################################################
+  # Meningococo
+  ###############################################################################
+  - name: Meningococo
+    protectsFrom: Meningococo
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 3
+      - title: 2ª dosis
+        from:
+          months: 5
+      - title: Refuerzo
+        from:
+          months: 15
+      - title: Única dosis
+        from:
+          years: 11
 
   ###############################################################################
   # Antigripal
