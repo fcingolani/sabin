@@ -1,0 +1,165 @@
+title: Calendario de Vacunación
+country: Uruguay
+updated_at: 2018-08-03
+source: http://www.msp.gub.uy/noticia/vacunas
+
+education:
+  classStartMonth: 4
+  termStartMonth: 3
+
+vaccines:
+
+  ###############################################################################
+  # BCG
+  ###############################################################################
+  - name: BCG
+    protectsFrom: Enfermedades invasoras por M. tuberculosis
+    doses:
+      - title: Única dosis
+        description: Antes de egresar de la maternidad
+        from:
+          days: 0
+
+  ###############################################################################
+  # Pentavalente
+  ###############################################################################
+  - name: Pentavalente
+    protectsFrom: Hepatitis B, Difteria, Tétanos, Tos Convulsiva, Enfermedades invasoras por H. influenzae tipo b (Hib)
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: 3ª dosis
+        from:
+          months: 6
+      - title: 4ª dosis
+        from:
+          months: 15
+
+  ###############################################################################
+  # Polio
+  ###############################################################################
+  - name: Polio IPV (Salk)
+    protectsFrom: Poliomielitis
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: 3ª dosis
+        from:
+          months: 6
+      - title: 4ª dosis
+        description: Desde el año 2017 no se administra la 4ta dosis de IPV a los 15 meses. Esta se dará a partir del año 2021, a los 5 años de edad.
+        from:
+          years: 5
+
+  ###############################################################################
+  # Triple Viral
+  ###############################################################################
+  - name: Triple Viral (SRP)
+    protectsFrom: Sarampión, rubéola, paperas.
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 12
+      - title: 2ª dosis
+        from:
+          years: 5
+
+  ###############################################################################
+  # Varicela
+  ###############################################################################
+  - name: Varicela
+    protectsFrom: Varicela
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 12
+      - title: 2ª dosis
+        from:
+          years: 5
+
+  ###############################################################################
+  # Neumococo Conjugada
+  ###############################################################################
+  - name: Neumococo 13 V (Conjugada)
+    protectsFrom: Meningitis, neumonía y sepsis por neumococo
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 2
+      - title: 2ª dosis
+        from:
+          months: 4
+      - title: Refuerzo
+        from:
+          months: 12
+
+  ###############################################################################
+  # Hepatitis A
+  ###############################################################################
+  - name: Hepatitis A (HA)
+    protectsFrom: Hepatitis A
+    doses:
+      - title: 1ª dosis
+        from:
+          months: 15
+      - title: 2ª dosis
+        from:
+          months: 21
+
+  ###############################################################################
+  # Triple Bacteriana Celular
+  ###############################################################################
+  - name: Triple Bacteriana (DPT)
+    protectsFrom: Difteria, tétanos, tos convulsa
+    doses:
+      - title: 1ª dosis
+        from:
+          years: 5
+
+  ###############################################################################
+  # Triple Bacteriana Acelular
+  ###############################################################################
+  - name: Triple Bacteriana Acelular (dpaT)
+    protectsFrom: Difteria, tétanos, tos convulsa
+    doses:
+      - title: Refuerzo
+        from:
+          years: 11
+
+  ###############################################################################
+  # Doble Bacteriana (dT)
+  ###############################################################################
+  - name: Doble Bacteriana (dT)
+    protectsFrom: Difteria, tétanos
+    doses:
+      - title: Refuerzo
+        description: Cada 10 años
+        from:
+          years: 21
+      - title: Refuerzo
+        description: Cada 10 años
+        from:
+          years: 31
+
+  ###############################################################################
+  # VPH
+  ###############################################################################
+  - name: VPH
+    warning: Solo niñas.
+    protectsFrom: Virus papiloma humano
+    doses:
+      - title: 1ª dosis
+        from:
+          years: 11
+      - title: 2ª dosis
+        from:
+          years: 11
+          months: 6
