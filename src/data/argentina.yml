@@ -252,7 +252,7 @@ vaccines:
   # VPH
   ###############################################################################
   - name: VPH
-    warning: Solo niñas.
+    warning: Niños y niñas.
     protectsFrom: Virus papiloma humano
     doses:
       - title: 1ª dosis
