@@ -1,7 +1,7 @@
 title: Calendario de Vacunación
 country: Chile
-updated_at: 2016-05-27
-source: http://vacunas.minsal.cl/?page_id=1539
+updated_at: 2018-08-03
+source: https://vacunas.minsal.cl/calendario-de-vacunacion-2018/
 
 education:
   classStartMonth: 4
@@ -41,10 +41,10 @@ vaccines:
           months: 12
 
   ###############################################################################
-  # Polio
+  # Hexavalente
   ###############################################################################
-  - name: Polio
-    protectsFrom: Polimielitis
+  - name: Hexavalente
+    protectsFrom: Hepatitis B, Difteria, Tétanos, Tos Convulsiva, Enfermedades invasoras por H. influenzae tipo b (Hib), Poliomielitis
     doses:
       - title: 1ª dosis
         from:
@@ -52,12 +52,6 @@ vaccines:
       - title: 2ª dosis
         from:
           months: 4
-      - title: 3ª dosis
-        from:
-          months: 6
-      - title: 4ª dosis
-        from:
-          months: 18
 
   ###############################################################################
   # Pentavalente
@@ -67,14 +61,21 @@ vaccines:
     doses:
       - title: 1ª dosis
         from:
-          months: 2
+          months: 6
       - title: 2ª dosis
         from:
-          months: 4
-      - title: 3ª dosis
+          months: 18
+
+  ###############################################################################
+  # Polio
+  ###############################################################################
+  - name: Polio Oral
+    protectsFrom: Polimielitis
+    doses:
+      - title: 1ª dosis
         from:
           months: 6
-      - title: 4ª dosis
+      - title: 2ª dosis
         from:
           months: 18
 
