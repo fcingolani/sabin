@@ -28,7 +28,7 @@
          <div class="card red lighten-5">
            <div class="card-content">
              <span class="card-title">Atención</span>
-             <p>Si bien Sabin te ayuda a ver un calendario de vacunación aproximado, <strong>siempre debes consultar a tu médico</strong> por un plan de vacunación adecuado.</p>
+             <p>Si bien Sabin te ayuda a ver un calendario de vacunación aproximado que tiene en cuenta las vacunas mínimas y obligatorias de cada país, <strong>siempre debes consultar a un médico</strong> por un plan de vacunación adecuado, quien posiblemente recomiende agregar otras vacunas optativas.</p>
              <p>La información de este calendario se obtuvo desde el <a target="_blank" href="{{calendar.source}}">{{calendar.title}} de {{calendar.country}}</a>, actualizado el día {{calendar.updated_at | formatDate}}. Si detectas un error, puedes contactarme en <a href="https://twitter.com/fcingolani" target="_blank">Twitter</a></p>
            </div>
            <div class="card-action">
